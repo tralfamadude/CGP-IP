@@ -35,16 +35,17 @@ if __name__ == '__main__':
     random.seed(7)
 
     if len(sys.argv)==1:
+        print("start evolving...")
         cgp = CGPIP(Functions,graph_length,mutation_rate,size_mutation,num_islands,num_indiv,sync_interval_island,max_iterations,True,False,Chromosome.FITNESS_MCC,Chromosome.MUTATE,batch_size)
 
         if os.path.exists('./chromo.txt'):
             cgp.load_chromosome('./chromo.txt')
 
-        cgp.load_input_data(cgp.COLOR_RGBHSV,max_element,'../CGP-IP-DATA/lunar/images/render')
-        cgp.load_output_data(cgp.COLOR_GRAYSCALE,max_element,'../CGP-IP-DATA/lunar/images/clean')
+        cgp.load_input_data(cgp.COLOR_GRAYSCALE,max_element,'lunar/render')
+        cgp.load_output_data(cgp.COLOR_GRAYSCALE,max_element,'lunar/clean')
 
         cgp.run()
-    elif sys.argv[1]=='display':
+    elif sys.argv[1]=='display':  # needs arg: best.txt
         if os.path.exists(sys.argv[2]):
             chromosome = Chromosome(0,0,0,Chromosome.FITNESS_MCC,Functions)
             chromosome.fromFile(sys.argv[2])
@@ -54,8 +55,8 @@ if __name__ == '__main__':
 
             cgp = CGPIP(Functions,graph_length,mutation_rate,size_mutation,num_islands,num_indiv,sync_interval_island,max_iterations,True,False,Chromosome.FITNESS_MCC,Chromosome.GOLDMAN_MUTATE,batch_size)
 
-            cgp.load_input_data(cgp.COLOR_RGBHSV,max_element,'../CGP-IP-DATA/lunar/images/render')
-            cgp.load_output_data(cgp.COLOR_GRAYSCALE,max_element,'../CGP-IP-DATA/lunar/images/clean')
+            cgp.load_input_data(cgp.COLOR_RGBHSV,max_element,'lunar/render')  #image_training_data_inputs
+            cgp.load_output_data(cgp.COLOR_GRAYSCALE,max_element,'lunar/clean')  #image_training_data_output 
 
             inputs = cgp.getAllInputs()
             outputs = cgp.getAllOutputs()
@@ -115,8 +116,8 @@ if __name__ == '__main__':
 
             cgp = CGPIP(Functions,graph_length,mutation_rate,size_mutation,num_islands,num_indiv,sync_interval_island,max_iterations,True,False,Chromosome.FITNESS_MCC,Chromosome.GOLDMAN_MUTATE,batch_size)
 
-            cgp.load_input_data(cgp.COLOR_RGBHSV,max_element,'./tata_blob_min/input1','./tata_blob_min/input2')
-            cgp.load_output_data(cgp.COLOR_GRAYSCALE,max_element,'./tata_blob_min/output')
+            cgp.load_input_data(cgp.COLOR_RGBHSV,max_element,'lunar/render')
+            cgp.load_output_data(cgp.COLOR_GRAYSCALE,max_element,'lunar/clean')
 
             inputs = cgp.getAllInputs()
             outputs = cgp.getAllOutputs()
@@ -195,7 +196,7 @@ if __name__ == '__main__':
                                 x = 0
                         #fig.tight_layout()
                         plt.subplots_adjust(left=0, right=1, top=0.95, bottom=0, wspace=0.14, hspace=0.14)
-                        plt.show(True)
+                        plt.show() #plt.show(True)
 
     elif sys.argv[1]=='test':
         chromosome = Chromosome(1,1,50,Chromosome.FITNESS_MCC,Functions)
