@@ -104,7 +104,6 @@ venv.bak/
 .mypy_cache/
 
 # misc
-*.png
 *.zip
 *.pdf
 *.csv
