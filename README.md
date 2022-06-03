@@ -14,12 +14,9 @@ A mixed typed version is in preparation and will be release soon.
 
 # Setup
 
-`conda create --name CGP-IP python=3.7
-conda activate CGP-IP
-pip install numpy
-pip install opencv-python
-pip install tqdm
-pip install matplotlib`
+`conda create --name CGP-IP python=3.7`
+`conda activate CGP-IP`
+`pip install -r requirements.txt`
 
 # Test Data
 One of the tests noted in the papers on CGP-IP is the dataset for the lunar images https://www.kaggle.com/datasets/romainpessia/artificial-lunar-rocky-landscape-dataset (creative-commons lic.), which is gigantic (5GB). To make testing against that more manageable, 250 images from that collection are included under lunar/ directory. The data is synthetic moon images similar to what an astronaut would see while walking on the moon. Because it is synthetic, it is easy to have nice masks to classify objects (large rock, small rock, "sky").
