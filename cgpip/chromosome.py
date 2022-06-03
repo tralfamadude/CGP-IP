@@ -4,7 +4,7 @@ import numpy as np
 from multiprocessing import Process, Queue
 import time
 from tqdm import tqdm
-
+random.seed(5)
 class ChromosomeProcess(Process):
     def __init__(self,chromosome,input_data,output_data,queue):
         super(ChromosomeProcess, self).__init__()
