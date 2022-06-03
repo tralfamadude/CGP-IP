@@ -539,7 +539,8 @@ class Chromosome:
 
             for i in range(0,len(self.output_nodes)):
                 self.output_values.append(self.nodes_value[self.graph_length+self.num_inputs-self.output_nodes[i]])
-        except:
+        except Exception as e:
+            print(e) 
             print("Exception node "+str(i))
             print(str(self.nodes[i-self.num_inputs].getFunction()))
             print(str(self.nodes[i-self.num_inputs].getParameter0()))
