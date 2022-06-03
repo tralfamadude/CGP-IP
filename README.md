@@ -26,7 +26,7 @@ One of the tests noted in the papers on CGP-IP is the dataset for the lunar imag
 Annotation/Mask colors:
 
 - pebbles: no color
-- smallerrocks: green
+- smaller rocks: green
 - larger rocks: blue
 - sky: red
 
